@@ -1,5 +1,5 @@
 """
-AI Learning Coach - Streamlit Web Application
+Broken by Design - Streamlit Web Application
 
 A web interface for learning how to prompt AI effectively.
 Demonstrates SOLID principles and clean architecture in action.
@@ -68,7 +68,7 @@ def initialize_session_state():
 def render_sidebar(lesson_manager):
     """Render sidebar with navigation and progress."""
     with st.sidebar:
-        st.title("🎓 AI Learning Coach")
+        st.title("🎓 Broken by Design")
         st.markdown("---")
         
         # Optional email for saving progress
