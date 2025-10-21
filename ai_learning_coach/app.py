@@ -19,8 +19,8 @@ load_dotenv()
 
 # Page configuration
 st.set_page_config(
-    page_title="AI Learning Coach",
-    page_icon="🎓",
+    page_title="Broken By Design"
+    page_icon="✸",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -333,3 +333,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# touch test
