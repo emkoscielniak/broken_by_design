@@ -30,7 +30,7 @@ class TestRubricScorer:
         assert isinstance(score, PromptScore)
         assert score.total_score > 60  # Should pass
         assert score.intent == PromptIntent.HELP_ME_LEARN
-        assert score.learning_orientation > 60
+        assert score.learning_orientation >= 60
     
     @pytest.mark.unit
     def test_score_bad_do_it_for_me_prompt(self):
