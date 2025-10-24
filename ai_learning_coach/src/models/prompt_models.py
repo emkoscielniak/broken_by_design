@@ -212,3 +212,27 @@ class ScoreWeights:
         total = self.learning_orientation + self.specificity + self.engagement
         if not 0.99 <= total <= 1.01:  # Allow for floating point precision
             raise ValueError(f"Weights must sum to 1.0, got {total}")
+
+
+@dataclass
+class DemonstrationResult:
+    """
+    SRP: Holds demonstration comparison data.
+    
+    Shows the difference between a bad prompt response and an improved version.
+    Used to demonstrate the real impact of prompt quality.
+    
+    Attributes:
+        original_prompt: The user's original (possibly bad) prompt
+        improved_prompt: The improved version of the prompt
+        bad_response: AI response to the original prompt (intentionally unhelpful)
+        good_response: AI response to the improved prompt (helpful and educational)
+        explanation: Why the improved version works better
+        is_simulated: True if using canned examples instead of real API calls
+    """
+    original_prompt: str
+    improved_prompt: str
+    bad_response: str
+    good_response: str
+    explanation: str
+    is_simulated: bool = False

@@ -7,6 +7,7 @@ from src.interfaces.service_interfaces import (
     IFeedbackProvider,
     IProgressPersister,
     IAIClient,
+    IDemonstrator,
 )
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     'IFeedbackProvider',
     'IProgressPersister',
     'IAIClient',
+    'IDemonstrator',
 ]

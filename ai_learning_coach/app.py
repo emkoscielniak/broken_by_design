@@ -10,7 +10,13 @@ import streamlit as st
 from dotenv import load_dotenv
 
 # Import our services
-from src.services import RubricScorer, PromptAnalyzer, FeedbackGenerator, LessonManager
+from src.services import (
+    RubricScorer,
+    PromptAnalyzer,
+    FeedbackGenerator,
+    LessonManager,
+    PromptDemonstrator,
+)
 from src.models import UserProgress, PromptAnalysis
 from src.infrastructure import OpenAIClient
 
@@ -19,7 +25,7 @@ load_dotenv()
 
 # Page configuration
 st.set_page_config(
-    page_title="Broken By Design"
+    page_title="Broken By Design",
     page_icon="✸",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -39,7 +45,10 @@ def initialize_services():
     api_key = os.getenv("OPENAI_API_KEY")
     ai_client = OpenAIClient(api_key) if api_key else None
     
-    return scorer, analyzer, feedback_generator, lesson_manager, ai_client
+    # Initialize demonstrator with AI client
+    demonstrator = PromptDemonstrator(ai_client)
+    
+    return scorer, analyzer, feedback_generator, lesson_manager, ai_client, demonstrator
 
 
 def initialize_session_state():
@@ -297,29 +306,137 @@ def render_history():
                     st.markdown(f"⚠️ {pattern}")
 
 
+def render_demonstration(demonstrator, ai_client):
+    """Render the 'See It In Action' demonstration interface."""
+    st.header("🎭 See It In Action")
+    st.markdown("""
+    **Experience the difference between bad and good prompts in real-time.**
+    
+    Enter a prompt below and see how AI responds differently when the prompt is poorly vs well-crafted.
+    This demonstrates why prompt quality matters for learning.
+    """)
+    
+    # Check if API is available
+    if not ai_client:
+        st.info("💡 **Demo Mode**: Using simulated responses (OpenAI API key not configured)")
+    else:
+        st.success("✅ **Live Mode**: Using real OpenAI API responses")
+    
+    # Prompt input
+    user_prompt = st.text_area(
+        "Enter your prompt:",
+        height=100,
+        placeholder="Example: Write code for a calculator",
+        help="Try a typical prompt you might use with AI"
+    )
+    
+    # Optional: User can provide their own improved version
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        custom_improved = st.text_area(
+            "Or provide your improved version (optional):",
+            height=100,
+            placeholder="Leave blank to auto-generate an improved version",
+            help="If you have an improved version in mind, enter it here"
+        )
+    with col2:
+        st.markdown("") # Spacing
+        st.markdown("") # Spacing
+        demonstrate_button = st.button(
+            "🎭 Show the Difference",
+            type="primary",
+            use_container_width=True
+        )
+    
+    if demonstrate_button and user_prompt.strip():
+        with st.spinner("Generating responses... This may take a few seconds"):
+            # Get demonstration
+            improved_prompt = custom_improved.strip() if custom_improved.strip() else None
+            result = demonstrator.demonstrate(user_prompt, improved_prompt)
+            
+            # Store in session state
+            st.session_state.current_demonstration = result
+            st.rerun()
+    
+    # Display results
+    if 'current_demonstration' in st.session_state and st.session_state.current_demonstration:
+        result = st.session_state.current_demonstration
+        
+        st.markdown("---")
+        st.subheader("📊 The Difference")
+        
+        if result.is_simulated:
+            st.info("🎭 **Simulated Demo**: These are example responses showing typical patterns")
+        else:
+            st.success("✅ **Live Results**: Real responses from OpenAI API")
+        
+        # Side-by-side comparison
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("### ❌ Original Prompt")
+            st.code(result.original_prompt, language=None)
+            st.markdown("**AI Response:**")
+            with st.container():
+                st.markdown(
+                    f'<div style="background-color: #ffe6e6; padding: 15px; border-radius: 5px; border-left: 4px solid #ff4444;">{result.bad_response}</div>',
+                    unsafe_allow_html=True
+                )
+            st.caption("⚠️ Unhelpful: Just gives answers without teaching")
+        
+        with col2:
+            st.markdown("### ✅ Improved Prompt")
+            st.code(result.improved_prompt, language=None)
+            st.markdown("**AI Response:**")
+            with st.container():
+                st.markdown(
+                    f'<div style="background-color: #e6f7e6; padding: 15px; border-radius: 5px; border-left: 4px solid #44ff44;">{result.good_response}</div>',
+                    unsafe_allow_html=True
+                )
+            st.caption("✅ Helpful: Explains, demonstrates, and encourages practice")
+        
+        # Explanation
+        st.markdown("---")
+        st.subheader("💡 Why This Matters")
+        st.markdown(result.explanation)
+        
+        # Clear button
+        if st.button("🗑️ Clear Demo", use_container_width=False):
+            st.session_state.current_demonstration = None
+            st.rerun()
+
+
 def main():
     """Main application entry point."""
     # Initialize
     initialize_session_state()
-    scorer, analyzer, feedback_generator, lesson_manager, ai_client = initialize_services()
+    scorer, analyzer, feedback_generator, lesson_manager, ai_client, demonstrator = initialize_services()
     
     # Check API key
     if not os.getenv("OPENAI_API_KEY"):
-        st.warning("⚠️ OpenAI API key not found. AI features will be limited. Add OPENAI_API_KEY to your .env file.")
+        st.warning("⚠️ OpenAI API key not found. Demo mode will use simulated responses. Add OPENAI_API_KEY to your .env file for live demonstrations.")
     
     # Render sidebar
     render_sidebar(lesson_manager)
     
     # Main content tabs
-    tab1, tab2, tab3 = st.tabs(["✍️ Prompt Analyzer", "📚 Lessons", "📜 History"])
+    tab1, tab2, tab3, tab4 = st.tabs([
+        "✍️ Prompt Analyzer",
+        "🎭 See It In Action",
+        "📚 Lessons",
+        "📜 History"
+    ])
     
     with tab1:
         render_prompt_analyzer(analyzer, feedback_generator)
     
     with tab2:
-        render_lessons(lesson_manager)
+        render_demonstration(demonstrator, ai_client)
     
     with tab3:
+        render_lessons(lesson_manager)
+    
+    with tab4:
         render_history()
     
     # Footer

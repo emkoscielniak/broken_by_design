@@ -1,139 +1,165 @@
-# 🚀 Enterprise AI Development
+# ✸ Broken by Design
 
-> **Learn professional software development by building a real AI application**
+> **An AI-powered learning coach that teaches you how to prompt AI effectively**
 
-[![Tests](https://img.shields.io/badge/tests-69%20passing-brightgreen)]()
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)]()
+[![Tests](https://img.shields.io/badge/tests-73%20passing-brightgreen)]()
+[![Coverage](https://img.shields.io/badge/coverage-92.87%25-brightgreen)]()
 [![TDD](https://img.shields.io/badge/methodology-TDD-orange)]()
+[![SOLID](https://img.shields.io/badge/architecture-SOLID-blue)]()
 
 ---
 
-## What You'll Learn in 2 Weeks
+## What This Project Does
 
-Build a creative AI application using **OpenAI's APIs** while mastering:
+**Broken by Design** is an interactive web application that helps users learn to craft better AI prompts through:
 
-**Test-Driven Development** • **Clean Architecture** • **Enterprise Logging** • **Professional Git** • **CI/CD**
+**Real-time Feedback** • **Structured Lessons** • **Progress Tracking** • **Multiple Learning Styles** • **OpenAI Integration**
 
-**The Twist:** This codebase is designed as a **living textbook**. Every file teaches you concepts through narrative comments and real examples.
+**The Philosophy:** Most people use AI poorly—asking it to "do it for me" instead of "help me learn." This app teaches the difference through analysis, scoring, and personalized coaching.
 
 ---
 
-## 🎯 Three Ways to Start
+## 🎯 Three Ways to Use This
 
 <table>
 <tr>
 <td width="33%" align="center">
-<h3>🏃‍♂️ Just Get It Running</h3>
+<h3>🏃‍♂️ Try the App</h3>
 <p><strong>5-minute setup</strong></p>
-<a href="docs/GETTING_STARTED.md">Quick Start Guide →</a>
+<a href="#-quick-start">Launch Broken by Design →</a>
 <br><br>
-<em>Setup, run tests, see it work</em>
+<em>Analyze prompts, get feedback</em>
 </td>
 <td width="33%" align="center">
-<h3>📚 Teach Me Properly</h3>
-<p><strong>Full learning path</strong></p>
-<a href="docs/LEARNING_PATH.md">Learning Path Map →</a>
+<h3>📚 Study the Code</h3>
+<p><strong>See SOLID in action</strong></p>
+<a href="ai_learning_coach/src/">Browse Architecture →</a>
 <br><br>
-<em>Follow the guided journey</em>
+<em>Clean architecture, TDD, DI</em>
 </td>
 <td width="33%" align="center">
-<h3>🎯 I Know What I'm Doing</h3>
-<p><strong>Jump to the code</strong></p>
-<a href="src/">Browse Source →</a>
+<h3>🛠️ Extend It</h3>
+<p><strong>Build new features</strong></p>
+<a href="#-project-structure">Explore Structure →</a>
 <br><br>
-<em>See patterns, apply them</em>
+<em>Add lessons, scoring, styles</em>
 </td>
 </tr>
 </table>
 
 ---
 
-## 📖 Your Learning Resources
+## ✨ Key Features
 
-### 🎓 Course Materials
-- **[Learning Path Map](docs/LEARNING_PATH.md)** - Master roadmap
-- **[Getting Started](docs/GETTING_STARTED.md)** - Setup and first steps
-- **[Course Structure](docs/COURSE_STRUCTURE.md)** - 2-week session plan
-- **[Code as Textbook](docs/CODE_AS_TEXTBOOK.md)** - How to read this code
-- **[Student Guide](docs/STUDENT_GUIDE.md)** - Day-by-day checklist
-- **[Grading Rubric](docs/GRADING.md)** - What you'll be evaluated on
+### 📊 **Prompt Analysis**
+- Real-time scoring across 3 dimensions: Learning Orientation, Specificity, Engagement
+- AI-powered intent detection (Do It For Me vs. Help Me Learn)
+- Anti-pattern detection and improvement suggestions
+- Concrete examples showing better alternatives
 
-### 🛠️ Development Guides
-- **[TDD Workflow](docs/TDD_WORKFLOW.md)** - Write tests first (15 min read)
-- **[AI Collaboration](docs/AI_COLLABORATION.md)** - Work with Claude (10 min read)
-- **[Git Workflow](docs/GIT_WORKFLOW.md)** - Professional commits (10 min read)
-- **[Logging Guide](docs/LOGGING.md)** - Enterprise logging (5 min read)
-- **[Labs (Guided Practice)](docs/LEARNING_PATH.md#2-narrative-reading-days-12)** - Hands-on exercises per chapter
+### 📚 **Structured Lessons**
+- 5 progressive lessons from beginner to advanced
+- Interactive exercises with hints and examples
+- Skill-based recommendations
+- Progress tracking and completion badges
 
-### 💡 Project Resources
-- **[Project Launch Kit](docs/PROJECT_LAUNCH_KIT.md)** - Scope and planning template
-- **[Project Ideas](docs/PROJECT_IDEAS.md)** - 60+ ideas with difficulty ratings
-- **[OpenAI APIs](docs/openai_tools_research_oct2025.md)** - Complete API reference (1,300 lines)
-- **[Demo Playbook](docs/DEMO_PLAYBOOK.md)** - Prepare your final presentation
+### 💬 **Personalized Feedback**
+Choose your learning style:
+- **Encouraging**: Positive, supportive coaching
+- **Direct**: Straightforward, fact-based feedback
+- **Socratic**: Reflective questions to guide discovery
 
-### 📚 Reference Library
-- **[Architecture Overview](docs/architecture.md)** - System diagrams and design decisions
-- **[OpenAI Web Search Notes](docs/web_search_openai.md)** - Tool behavior, payloads, and examples
+### � **Progress Tracking**
+- Track total prompts analyzed
+- Monitor success rate and skill level
+- Review prompt history with scores
+- Optional email-based progress saving
+
+### 🤖 **OpenAI Integration**
+- Real-time chat with GPT-4o-mini
+- AI-enhanced intent analysis
+- Conversational feedback generation
 
 ---
 
-## 🏗️ What This Repository Demonstrates
+## 🏗️ Project Structure
 
-**A production-quality AI web search application** that shows you:
+**Clean Architecture with SOLID Principles:**
 
 ```
-📂 Architecture                      What You'll Learn
-├── src/models.py                   → Dataclasses, type hints, exceptions
-├── src/client.py                   → API clients, error handling, secrets
-├── src/parser.py                   → Data transformation, defensive parsing
-├── src/search_service.py           → Service layer, validation, orchestration
-├── src/main.py                     → CLI design, user experience
-└── src/logging_config.py           → Enterprise logging, rotation
-
-📂 Tests (69 tests, 100% coverage)   How You'll Prove It Works
-├── tests/test_models.py            → Unit testing patterns
-├── tests/test_client.py            → Mocking external APIs
-├── tests/test_parser.py            → Data validation testing
-├── tests/test_search_service.py    → Integration testing
-└── tests/test_main.py              → System testing
+ai_learning_coach/
+├── app.py                                    → Streamlit web interface
+├── src/
+│   ├── models/
+│   │   └── prompt_models.py                  → 8 data models with validation
+│   ├── interfaces/
+│   │   └── service_interfaces.py             → 6 interface contracts (ISP, DIP)
+│   ├── services/
+│   │   ├── score_strategies.py               → Strategy pattern for scoring
+│   │   ├── prompt_analyzer.py                → Prompt evaluation service
+│   │   ├── feedback_generator.py             → Multi-style feedback
+│   │   └── lesson_manager.py                 → Lesson recommendations
+│   └── infrastructure/
+│       └── openai_client.py                  → OpenAI API integration
+│
+└── tests/                                     → 73 tests, 92.87% coverage
+    ├── unit/
+    │   ├── test_models.py                    → 22 model tests
+    │   ├── test_score_strategies.py          → 14 scoring tests
+    │   ├── test_prompt_analyzer.py           → 13 analyzer tests
+    │   ├── test_feedback_generator.py        → 12 feedback tests
+    │   └── test_lesson_manager.py            → 12 lesson tests
+    └── conftest.py                           → Shared test fixtures
 ```
 
-**Key Feature:** Each source file pairs with a test file. This is Test-Driven Development.
+**SOLID Principles Demonstrated:**
+- **SRP**: Each class has one responsibility (scorer, analyzer, generator)
+- **OCP**: Strategy pattern allows new scoring algorithms without changes
+- **LSP**: All strategies implement same interface correctly
+- **ISP**: Small, focused interfaces (3-6 methods each)
+- **DIP**: Services depend on abstractions, not concrete classes
 
 ---
 
-## 🎯 Your Mission (Choose One API or Combination)
+## � Educational Value
 
-**Available Tools:**
-- Chat Completion (conversations)
-- Vision (image analysis)
-- DALL-E 3 (image generation)
-- Whisper (speech-to-text)
-- TTS (text-to-speech)
-- Embeddings (semantic search)
-- Assistants (persistent agents)
-- Sora 2 (video generation)
-- GPT-5 Pro (advanced reasoning)
+**Learn Industry-Standard Practices:**
 
-**Examples:**
-- 📸 Recipe from food photo (Vision + Chat)
-- 🎙️ Meeting transcriber (Whisper + Summarization)
-- 🎨 AI art studio (DALL-E 3 + Chat)
-- 📚 Document Q&A (Embeddings + Chat)
-- 🎬 Story to video (Chat + Sora 2)
+### Test-Driven Development (TDD)
+- 73 tests written BEFORE implementation
+- RED-GREEN-REFACTOR methodology
+- 92.87% code coverage
+- Unit, integration, and edge case testing
 
-**[Browse 10 detailed project ideas →](docs/PROJECT_IDEAS.md)**
+### Clean Architecture
+- Separation of concerns (Models → Interfaces → Services → Infrastructure → UI)
+- Dependency Injection throughout
+- No circular dependencies
+- Easy to test and extend
+
+### Design Patterns
+- **Strategy Pattern**: Pluggable scoring algorithms
+- **Dependency Injection**: Constructor-based for testability
+- **Repository Pattern**: LessonManager for data access
+- **Factory Pattern**: Service initialization
+
+### Professional Practices
+- Type hints throughout
+- Comprehensive docstrings
+- Validation with clear error messages
+- Environment-based configuration
+- Session state management
 
 ---
 
-## ⚡ Quick Start (5 Minutes)
+## ⚡ Quick Start
 
-**Prerequisites:** Python 3.11 or higher ([Download](https://python.org))
+**Prerequisites:** Python 3.11+ and an OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
 
 ```bash
 # Clone and setup
-git clone https://github.com/kaw393939/enterprise_ai_demo1_websearch.git
-cd enterprise_ai_demo1_websearch
+git clone https://github.com/emkoscielniak/broken_by_design.git
+cd broken_by_design
 python -m venv venv
 source venv/bin/activate  # Mac/Linux (Windows: venv\Scripts\activate)
 
@@ -141,127 +167,208 @@ source venv/bin/activate  # Mac/Linux (Windows: venv\Scripts\activate)
 pip install -r requirements.txt
 
 # Configure API key
-cp .env.example .env
-# Edit .env and add: OPENAI_API_KEY=sk-your-key-here
+echo "OPENAI_API_KEY=sk-your-key-here" > .env
 
-# Verify it works
+# Run tests to verify
+cd ai_learning_coach
 pytest
-python -m src.main "latest AI developments"
+
+# Launch the app
+streamlit run app.py
 ```
 
-✅ **Working?** Great! Next: **[Read Course Structure →](docs/COURSE_STRUCTURE.md)**
+✅ **Success!** The app opens at `http://localhost:8501`
 
-❌ **Issues?** Check **[Getting Started Guide →](docs/GETTING_STARTED.md)**
+### First Steps in the App:
+1. **Prompt Analyzer**: Paste a prompt and click "Analyze"
+2. **Lessons**: Start with "The Basics" (Level 1)
+3. **History**: Review your analyzed prompts
+4. **Settings**: Try different feedback styles in the sidebar
 
 ---
 
-## 💡 What Makes This Course Unique
+## 🎯 Example: Good vs Bad Prompts
 
-### 1. **Code IS the Textbook**
-Every file has narrative comments explaining concepts, design decisions, and alternatives.
+### ❌ "Do It For Me" Prompt (Score: 35/100)
+```
+Write code for a calculator app
+```
+**Issues:**
+- No learning intent
+- Lacks context and specifics
+- No engagement or verification
+- Produces copy-paste dependency
 
-**Traditional code:**
+### ✅ "Help Me Learn" Prompt (Score: 88/100)
+```
+I'm building a calculator app in Python. Can you explain how to structure 
+the functions for add/subtract/multiply/divide operations? Then give me 
+an example for the add() function, and let me try implementing subtract() 
+myself. Review my implementation and suggest improvements.
+```
+**Strengths:**
+- Clear learning goal
+- Specific context (Python, calculator)
+- Requests explanation before code
+- Plans for practice and feedback
+- Builds understanding, not just working code
+
+**Broken by Design teaches you to write prompts like this through:**
+- Real-time analysis and scoring
+- Concrete suggestions for improvement
+- Progressive lessons with exercises
+- Tracking your growth over time
+
+---
+
+## � Technical Highlights
+
+### Technologies Used
+- **Python 3.11+**: Modern Python with type hints
+- **Streamlit 1.50.0**: Rapid web UI development
+- **OpenAI API**: gpt-4o-mini for chat and analysis
+- **pytest**: Comprehensive testing framework
+- **python-dotenv**: Environment configuration
+
+### Architecture Patterns
 ```python
-@dataclass
-class SearchOptions:
-    model: str = "gpt-4o-mini"
+# Strategy Pattern Example
+class IScoreStrategy(ABC):
+    @abstractmethod
+    def score(self, prompt: str) -> PromptScore:
+        pass
+
+class RubricScorer(IScoreStrategy):
+    def score(self, prompt: str) -> PromptScore:
+        # Scoring implementation
+        pass
+
+# Easy to add new strategies without changing existing code
 ```
 
-**Our teaching code:**
-```python
-@dataclass
-class SearchOptions:
-    """
-    📚 CONCEPT: Dataclasses auto-generate __init__, __repr__, __eq__
-    
-    📝 DESIGN: We default to "gpt-4o-mini" (fastest, cheapest for learning)
-    
-    EXAMPLE:
-    >>> options = SearchOptions()  # Uses defaults
-    >>> options = SearchOptions(model="gpt-4o")  # Override for production
-    """
-    model: str = "gpt-4o-mini"
-```
-
-### 2. **TDD is Non-Negotiable**
-You'll write tests FIRST, then code. This is how professionals prevent bugs.
-
-### 3. **Production Standards**
-Not tutorial code—real patterns you'll use in your career.
-
-### 4. **AI as Learning Partner**
-Learn to use Claude effectively while maintaining quality and understanding.
+### Test Coverage by Module
+| Module | Tests | Coverage |
+|--------|-------|----------|
+| prompt_models.py | 22 | 100% |
+| score_strategies.py | 14 | 96% |
+| prompt_analyzer.py | 13 | 96% |
+| feedback_generator.py | 12 | 94% |
+| lesson_manager.py | 12 | 74% |
+| **Overall** | **73** | **92.87%** |
 
 ---
 
-## 📊 Grading at a Glance
+## 🛠️ Development Commands
 
-| Category | Points | Key Requirements |
-|----------|--------|------------------|
-| **Works & Uses APIs** | 30 | No crashes, correct API usage |
-| **Tests & TDD** | 30 | 80%+ coverage, tests written first |
-| **Code Quality** | 25 | Clean architecture, logging, errors |
-| **Documentation & Demo** | 15 | Clear README, 5-min presentation |
-
-**[View full rubric →](docs/GRADING.md)**
-
----
-
-## 🆘 Getting Help
-
-**During class:** Ask instructor, pair with classmates, use Claude
-
-**Outside class:**
-1. Read the relevant guide in `docs/`
-2. Check example code in `src/` and `tests/`
-3. Search the [OpenAI API reference](docs/openai_tools_research_oct2025.md)
-4. Ask Claude with specific context (see [AI Collaboration guide](docs/AI_COLLABORATION.md))
-
-**Common issues:**
 ```bash
-pytest -v                                          # See test details
-source venv/bin/activate                           # Activate environment
-pytest --cov=src --cov-report=term-missing         # Check coverage
-git status && git log --oneline                    # Git status
+# Run all tests
+cd ai_learning_coach
+pytest
+
+# Run tests with coverage report
+pytest --cov=src --cov-report=term-missing
+
+# Run specific test file
+pytest tests/unit/test_models.py -v
+
+# Run the Streamlit app
+streamlit run app.py
+
+# Run on different port (if 8501 is busy)
+streamlit run app.py --server.port 8502
 ```
 
----
-
-## 🎓 Learning Outcomes
-
-After completing this course, you will confidently:
-
-✅ Build robust API clients with error handling  
-✅ Write comprehensive tests using TDD methodology  
-✅ Structure applications with clean architecture  
-✅ Implement enterprise-grade logging and monitoring  
-✅ Use professional git workflows and CI/CD  
-✅ Collaborate effectively with AI tools  
-✅ Present technical work clearly  
-
-**Most importantly:** You'll shift from writing "scripts that work" to building "systems that last."
+### Project Configuration
+- **pytest.ini**: Test configuration and markers
+- **.env**: OpenAI API key (create from .env.example)
+- **.streamlit/config.toml**: Streamlit settings (disables telemetry)
+- **requirements.txt**: Python dependencies
 
 ---
 
-## 🚀 Ready to Start?
+## 🚀 Extending the Project
 
-### Option 1: Dive Right In
-**[Getting Started Guide →](docs/GETTING_STARTED.md)** - Get running in 5 minutes
+**Want to add features? Here are some ideas:**
 
-### Option 2: Learn the Concepts First
-**[Code as Textbook →](docs/CODE_AS_TEXTBOOK.md)** - Understand the philosophy
+### Easy Extensions
+- Add new lessons with exercises
+- Create additional scoring criteria
+- Implement new feedback styles
+- Customize the UI theme and layout
+- Add more anti-patterns to detect
 
-### Option 3: See the Full Plan
-**[Course Structure →](docs/COURSE_STRUCTURE.md)** - 2-week breakdown
+### Moderate Extensions
+- Database persistence for user progress
+- User authentication system
+- Export progress reports to PDF
+- Analytics dashboard for admins
+- Multi-language support
+
+### Advanced Extensions
+- Real-time collaboration features
+- AI-generated personalized lessons
+- Integration with other AI APIs (Claude, Gemini)
+- Gamification with achievements and leaderboards
+- A/B testing for different teaching approaches
+
+**Each feature can be built using the same SOLID principles and TDD methodology demonstrated in the existing code.**
+
+---
+
+## � Documentation
+
+**Core Documentation:**
+- **[Streamlit Guide](ai_learning_coach/docs/STREAMLIT_GUIDE.md)** - Complete Streamlit tutorial
+- **[Architecture Overview](docs/architecture.md)** - System design and patterns
+- **[TDD Workflow](docs/TDD_WORKFLOW.md)** - Test-driven development process
+
+**Development Guides:**
+- **[Code as Textbook](docs/CODE_AS_TEXTBOOK.md)** - How the code teaches
+- **[AI Collaboration](docs/AI_COLLABORATION.md)** - Working with AI tools
+- **[Git Workflow](docs/GIT_WORKFLOW.md)** - Professional version control
+
+**Course Materials:**
+- **[Course Structure](docs/COURSE_STRUCTURE.md)** - 2-week learning plan
+- **[Student Guide](docs/STUDENT_GUIDE.md)** - Day-by-day checklist
+- **[Grading Rubric](docs/GRADING.md)** - Evaluation criteria
+
+---
+
+## 🤝 Contributing
+
+This project demonstrates professional software development practices. If you'd like to contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Write tests first (TDD!)
+4. Implement your feature
+5. Ensure all tests pass (`pytest`)
+6. Commit with clear messages (`git commit -m 'Add: amazing feature'`)
+7. Push to your branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+**Please maintain:**
+- 90%+ test coverage
+- SOLID principles
+- Type hints and docstrings
+- Clean architecture patterns
+
+---
+
+## 📄 License
+
+This project is part of an educational initiative. See the repository for license details.
 
 ---
 
 <div align="center">
 
-**Questions?** Check the [Getting Started Guide](docs/GETTING_STARTED.md) or ask your instructor.
+**✸ Broken by Design ✸**
 
-*Built with ❤️ for students who want to understand, not just copy-paste*
+*Teaching better AI prompting through deliberate practice*
 
-**Let's build something amazing! 🚀**
+**[Try It Now](#-quick-start)** • **[View Code](ai_learning_coach/src/)** • **[Read Docs](docs/)**
+
+Built with ❤️ using SOLID principles and Test-Driven Development
 
 </div>

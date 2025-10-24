@@ -9,6 +9,7 @@ from src.models.prompt_models import (
     UserProgress,
     CoachConfig,
     ScoreWeights,
+    DemonstrationResult,
 )
 
 __all__ = [
@@ -20,4 +21,5 @@ __all__ = [
     'UserProgress',
     'CoachConfig',
     'ScoreWeights',
+    'DemonstrationResult',
 ]

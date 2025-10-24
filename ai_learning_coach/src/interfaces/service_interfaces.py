@@ -13,6 +13,7 @@ from src.models import (
     PromptScore,
     Lesson,
     UserProgress,
+    DemonstrationResult,
 )
 
 
@@ -228,5 +229,36 @@ class IAIClient(ABC):
                 
         Raises:
             Exception: If API call fails
+        """
+        pass
+
+
+class IDemonstrator(ABC):
+    """
+    ISP: Focused on demonstrating prompt impact.
+    DIP: Allows swapping between real API and simulated responses.
+    
+    This interface defines the contract for demonstrating the difference
+    between good and bad prompts through actual AI responses.
+    """
+    
+    @abstractmethod
+    def demonstrate(
+        self,
+        original_prompt: str,
+        improved_prompt: Optional[str] = None
+    ) -> DemonstrationResult:
+        """
+        Show the difference between bad and good prompt responses.
+        
+        Args:
+            original_prompt: The user's original prompt
+            improved_prompt: Optional improved version (auto-generated if None)
+            
+        Returns:
+            DemonstrationResult with both responses and explanation
+            
+        Raises:
+            Exception: If demonstration fails
         """
         pass
